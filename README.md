@@ -47,7 +47,7 @@ This is a simple weekend MVP I built for [transcribe.pro](https://transcribe.pro
 
 ![SCR-20230823-mxjx](https://github.com/SU1199/ramble/assets/20323373/50fa2adc-d8bf-406f-b170-f1b041275371)
 
-
+### [Try it out here](https://ramble.transcribe.pro)
 ## Contributing
 
 If you have suggestions or bugs to report, feel free to open an issue or make a pull request.
