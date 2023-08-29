@@ -9,6 +9,7 @@ This is a simple weekend MVP I built for [transcribe.pro](https://transcribe.pro
 - 🎙️ Audio Recording: Record your thoughts or notes.
 - 📝 Transcription: Automatically transcribe the recorded audio.
 - 🧠 Mindmap Generation: Convert your transcribed text into Mermaid mindmaps.
+- ⦿ Bullet Points Generation: Summarize audio and get bullet-points.
 
 ## Getting Started
 
