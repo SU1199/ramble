@@ -1,0 +1,241 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="mic-svgrepo-com.svg">
+    <title>ramble</title>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+
+    <div class="flex flex-col min-h-screen bg-white" style="font-family: 'Inconsolata', monospace;">
+        <!-- Navbar -->
+        <nav class="px-6 py-4 border-b border-gray-300">
+            <div class="flex items-center justify-center">
+                <span class="text-3xl font-bold text-gray-800">ramble</span>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="grow flex items-center justify-center" id="mainDiv" style="display: ;">
+            <div class="flex flex-col items-center justify-center p-8 bg-white border border-gray-300 rounded-xl"
+                style="width: 20rem; height: 20rem;">
+                <div class="flex items-center justify-center w-16 h-16 bg-gray-200 rounded-full">
+                    <button class="p-4 bg-white rounded-full">
+                        <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="60px" height="60px" viewBox="0 0 72 72"
+                            enable-background="new 0 0 72 72" xml:space="preserve">
+                            <g>
+                                <path d="M36,54c6.893,0,12.5-5.607,12.5-12.5v-26C48.5,8.607,42.893,3,36,3c-6.893,0-12.5,5.607-12.5,12.5v26
+                           C23.5,48.393,29.107,54,36,54z M27.5,15.5c0-4.687,3.812-8.5,8.5-8.5c4.688,0,8.5,3.813,8.5,8.5v26c0,4.686-3.813,8.5-8.5,8.5
+                           c-4.687,0-8.5-3.814-8.5-8.5V15.5z" />
+                                <path d="M30.5,24c0.552,0,1-0.447,1-1v-8.518c0-2.303,2.094-2.482,2.851-2.482h0.774c0.553,0,1-0.447,1-1s-0.447-1-1-1h-0.774
+                           c-3.126,0-4.851,1.801-4.851,4.482V23C29.5,23.553,29.947,24,30.5,24z" />
+                                <path
+                                    d="M31.5,27v-1c0-0.553-0.448-1-1-1c-0.553,0-1,0.447-1,1v1c0,0.553,0.447,1,1,1C31.052,28,31.5,27.553,31.5,27z" />
+                                <path d="M55.5,37c-1.104,0-2,0.895-2,2v1.159C53.5,49.829,45.324,58,36.091,58h-0.212C26.421,58,18.5,49.663,18.5,40.158V39
+                           c0-1.105-0.896-2-2-2s-2,0.895-2,2v1.159c0,11.032,8.324,20.464,19,21.7V65h-6.376c-1.104,0-2,0.895-2,2c0,1.104,0.896,2,2,2
+                           h17.001c1.104,0,2-0.896,2-2c0-1.105-0.896-2-2-2H37.5v-3.055c10.973-0.755,20-10.234,20-21.787V39C57.5,37.895,56.604,37,55.5,37z
+                           " />
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-4 text-2xl font-bold text-gray-800">Start</div>
+                <div id="elapsed" class="mt-2 text-xs text-gray-400">00:00:00 / 01:00:00</div>
+                <!-- Wrap the buttons in a div with flex -->
+                <button id="processingButton" class="p-3 bg-black text-white rounded-md"
+                    style="display: none; margin-top: 1rem;">
+                    ✨Processing✨
+                </button>
+                <div class="inline-flex mt-8 mb-4" id="recordDiv" style="display: block;">
+                    <button id="rambleButton" class="p-4 bg-black text-white rounded-md mr-2">
+                        Ramble
+                    </button>
+                    <button id="pauseButton" class="p-4 bg-black text-white rounded-md mr-2" style="display: none;">
+                        Pause
+                    </button>
+                    <button id="stopButton" class="p-4 bg-black text-white rounded-md" style="display: none;">
+                        Stop
+                    </button>
+                </div>
+                <div class="flex items-center mt-4" id="goDiv" style="display: none;">
+                    <select id="dropdown" class="border border-gray-300 rounded-md p-4 mr-1">
+                        <option value="">Select a format...</option>
+                        <option value="mindmap">Mindmap</option>
+                        <option value="bullets">Bullets</option>
+                    </select>
+                    <button id="goButton" class="p-4 bg-black text-white rounded-md">
+                        ✨
+                    </button>
+                </div>
+            </div>
+        </main>
+        <main id="resultDiv" style="display: none ;">
+            <div class="mermaiid" id="diagram"
+                style="align-self: center; align-content: center; display: flex; justify-content: center; align-items: center;">
+                mindmap
+                root((How to Work on Ambitious Goals))
+                Qualities Needed
+                Natural Aptitude
+                Deep Interest
+                Great Work Potential
+                ::icon(fa fa-check-circle)
+                Choosing the Work
+                Difficulties
+                Age-Related Struggles
+                Unknown and Non-Existing Work Areas
+                Finding Your Aptitude and Interest
+                Experiment with Different Work Types
+                Ask for Feedback
+                Figuring Out What You Want to Do
+                Some People Know It Early
+                Majority Has to Figure It Out
+                ::note: Trial and Error
+                Keeping an Open Mind
+                Varying Paths
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+    <script>
+        let recorder;
+        let recordAudio;
+        let startTime;
+        let interval;
+        let isRecording = false;
+        let isPaused = false;
+
+        const rambleButton = document.getElementById('rambleButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const stopButton = document.getElementById('stopButton');
+        const goButton = document.getElementById('goButton');
+        const processingButton = document.getElementById('processingButton');
+        const dropdown = document.getElementById('dropdown');
+        const recordDiv = document.getElementById('recordDiv');
+        const goDiv = document.getElementById('goDiv');
+        const mainDiv = document.getElementById('mainDiv');
+        const resultDiv = document.getElementById('resultDiv');
+        let blob;
+
+        rambleButton.addEventListener('click', function () {
+            if (!isRecording) {
+                navigator.mediaDevices.getUserMedia({ audio: true }).then(function (stream) {
+                    recordAudio = RecordRTC(stream, {
+                        type: 'audio',
+                        mimeType: 'audio/webm',
+                        sampleRate: 44100,
+                        desiredSampRate: 44100
+                    });
+
+                    recordAudio.startRecording();
+                    startTime = new Date();
+                    interval = setInterval(updateTimer, 1000);
+                    rambleButton.style.display = 'none';
+                    pauseButton.style.display = '';
+                    stopButton.style.display = '';
+                    isRecording = true;
+                });
+            }
+        });
+
+        pauseButton.addEventListener('click', function () {
+            if (isPaused) {
+                recordAudio.resumeRecording();
+                interval = setInterval(updateTimer, 1000); // restart the timer
+                isPaused = false;
+                pauseButton.innerText = 'Pause';
+            } else {
+                recordAudio.pauseRecording();
+                clearInterval(interval); // pause the timer
+                isPaused = true;
+                pauseButton.innerText = 'Resume';
+            }
+        });
+
+        stopButton.addEventListener('click', function () {
+            if (isRecording) {
+                recordAudio.stopRecording(function () {
+                    blob = recordAudio.getBlob();
+
+                    clearInterval(interval); // stop the timer
+                    recordAudio = null;
+                    isRecording = false;
+                    isPaused = false;
+                    pauseButton.style.display = 'none';
+                    stopButton.style.display = 'none';
+                    rambleButton.style.display = 'none';
+                    rambleButton.innerText = 'Ramble';
+                    pauseButton.innerText = 'Pause';
+                    recordDiv.style.display = 'none';
+                    goDiv.style.display = 'flex';
+                });
+            }
+        });
+
+        goButton.addEventListener('click', function () {
+            let formData = new FormData();
+            formData.append('file', blob, 'audio.webm');
+            formData.append('format', dropdown.value);
+            goDiv.style.display = 'none';
+            processingButton.style.display = 'block';
+
+            fetch('https://ramble-57kn.onrender.com/audio/', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('GPT Response:', data['GPT Response']);
+                    mainDiv.style.display = 'none';
+                    if (dropdown.value == "bullets") {
+                        document.getElementById('diagram').innerText = data['GPT Response'];
+                    }
+                    else {
+                        document.getElementById('diagram').innerHTML = data['GPT Response'];
+                        mermaid.init(undefined, document.querySelectorAll('.mermaiid'));
+                    }
+
+                    resultDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+            goDiv.style.display = 'none';
+            recordDiv.style.display = 'block';
+        });
+
+        function updateTimer() {
+            let now = new Date();
+            let difference = now - startTime; // difference in milliseconds
+            let seconds = Math.floor((difference / 1000) % 60);
+            let minutes = Math.floor((difference / (1000 * 60)) % 60);
+            let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+
+            // Pad the time values with leading zeros if they are less than 10
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            let formatted = `${hours}:${minutes}:${seconds}`;
+
+            document.getElementById('elapsed').innerText = `${formatted} / 01:00:00`;
+        }
+    </script>
+    <script>
+        // mermaid.initialize({
+        //     startOnLoad: true
+        // });
+    </script>
+
+</body>
+
+</html>

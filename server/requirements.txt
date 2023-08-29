@@ -1,0 +1,4 @@
+openai
+fastapi[all]
+uvicorn[standard]
+gunicorn
