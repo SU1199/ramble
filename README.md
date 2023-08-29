@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a simple sunday project I build for transcribe.pro to let you record audio, transcribe it, and then magically turn it into mindmaps using GPT-3.5turbo to generate mermaid code.
+This is a simple weekend MVP I built for [transcribe.pro](https://transcribe.pro)  that lets you record audio, transcribe it, and then magically turn it into mindmaps using GPT-3.5-turbo to generate mermaid code.
 
 ## Features
 
@@ -42,6 +42,10 @@ This is a simple sunday project I build for transcribe.pro to let you record aud
 
 
 ## Usage & Demo
+
+![ramble](https://github.com/SU1199/ramble/assets/20323373/ee944188-191a-41f0-9d01-96e0579a1ea3)
+
+![SCR-20230823-mxjx](https://github.com/SU1199/ramble/assets/20323373/50fa2adc-d8bf-406f-b170-f1b041275371)
 
 
 ## Contributing
